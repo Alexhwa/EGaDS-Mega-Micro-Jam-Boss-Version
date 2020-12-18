@@ -13,7 +13,7 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    public static GameManager Instance => _instance ? _instance : _instance = FindObjectOfType<GameManager>() ;
+    public static GameManager Instance => _instance ? _instance : FindObjectOfType<GameManager>() ;
     public enum GameState
     {
         TitleScreen, MainGame, EndScreen
