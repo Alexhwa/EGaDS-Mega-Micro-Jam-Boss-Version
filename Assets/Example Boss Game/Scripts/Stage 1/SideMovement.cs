@@ -12,10 +12,11 @@ namespace BeeNice
         public float dampenFactor = 1.2f;
         private bool stunned;
         public float stunTime;
+        public Animator anim;
 
         [Header("Cup Collision")]
         private int ingredientsGotten;
-        private const int requiredIngredients = 5;
+        private const int requiredIngredients = 6;
         // Start is called before the first frame update
         void Start()
         {
@@ -84,6 +85,7 @@ namespace BeeNice
             if (stunned == false)
             {
                 stunned = true;
+                anim.SetBool("Stunned", stunned);
                 StartCoroutine(ResetStunned(stunTime));
             }
         }
@@ -91,6 +93,7 @@ namespace BeeNice
         {
             yield return new WaitForSeconds(delay);
             stunned = false;
+            anim.SetBool("Stunned", stunned);
         }
     }
 }
