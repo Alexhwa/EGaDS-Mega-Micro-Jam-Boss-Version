@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 namespace BeeNice {
@@ -20,14 +21,15 @@ namespace BeeNice {
         public Animator chefFireAnim;
         public Animator rivalFireAnim;
         public Animator chef;
+        public Slider chefSlider;
+        public Slider rivalSlider;
         public Animator rival;
         //Fire thresholds
+        public int winThreshold;
         public int flameThresholdMid;
         public int flameThresholdSmall;
         public int flameThresholdNone;
         //Win/Lose conditions
-        private int tapCount;
-        public int requiredTaps;
         public float loseTime;
         private float loseTimeSlice;
         private bool gameOver;
@@ -58,29 +60,25 @@ namespace BeeNice {
         // Update is called once per frame
         void Update()
         {
-            loseTime = loseTime - Time.deltaTime;
-
+            //arrow taps
             if (Input.GetAxis("Horizontal") > 0 && curArrow == ArrowActive.Left)
             {
                 curArrow = ArrowActive.Right;
-                tapCount++;
                 onKeyChange.Invoke();
-                if (tapInterval > 0)
-                {
-                    tapInterval -= tapStrength;
-                }
+                tapInterval -= tapStrength;
             }
             else if (Input.GetAxis("Horizontal") < 0 && curArrow == ArrowActive.Right)
             {
                 curArrow = ArrowActive.Left;
-                tapCount++;
                 onKeyChange.Invoke();
-                if (tapInterval > 0)
-                {
-                    tapInterval -= tapStrength;
-                }
+                tapInterval -= tapStrength;
             }
 
+            //Sliders
+            chefSlider.value = flameThresholdNone - tapInterval;
+            rivalSlider.value = loseTimeSlice * 4 - loseTime;
+
+            //Chef fire anims
             if (tapInterval < flameThresholdMid)
             {
                 fireState = FireState.Big;
@@ -100,10 +98,15 @@ namespace BeeNice {
             chefFireAnim.SetInteger("FireState", (int)fireState);
             chef.SetFloat("AnimSpeed", (int)fireState);
 
-            if (tapCount >= requiredTaps && !gameOver)
+            //Win lose conditions
+            if (tapInterval <= winThreshold && !gameOver)
             {
                 gameOver = true;
                 Stage2.instance.gameEnd.Invoke();
+            }
+            if(loseTime <= 0)
+            {
+                Stage2.instance.LoseGame();
             }
 
             //Rival chef's flame
@@ -130,9 +133,11 @@ namespace BeeNice {
         }
         private void FixedUpdate()
         {
+            loseTime = loseTime - Time.deltaTime;
+
             if (tapInterval < flameThresholdNone + 1)
             {
-                tapInterval++;
+                tapInterval += 1;
             }
         }
         private void ChangeArrow()
