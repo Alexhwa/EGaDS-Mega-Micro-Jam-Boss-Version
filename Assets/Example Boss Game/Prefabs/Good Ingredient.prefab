@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3255259474569945343}
   - component: {fileID: 3255259474569945342}
   m_Layer: 0
-  m_Name: Bad Ingredient
+  m_Name: Good Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -424140957
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7430c71debfab114dad6a3616ece729b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f5469b7414415d4a842edc5783d3f40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.15
+  m_GravityScale: 0.3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -118,9 +118,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.59671164}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.2766557
+  m_Radius: 3.83
 --- !u!114 &3255259474569945342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,12 +133,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6fd5f9f316382e44a212598a5128a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: {x: 0, y: 0.8}
-  dangerous: 1
+  fallSpeed: {x: 0, y: -1}
+  dangerous: 0
   rb: {fileID: 3255259474569945340}
   sprtRnd: {fileID: 3255259474569945330}
   sprites:
-  - {fileID: 21300000, guid: 701dfb9554614f8458ea5dd918e2e991, type: 3}
-  - {fileID: 21300000, guid: 5e8c8e92afd633c43a0c1f834aa30aba, type: 3}
-  - {fileID: 21300000, guid: 7430c71debfab114dad6a3616ece729b, type: 3}
+  - {fileID: 21300000, guid: 930ac5c3dc9cc094db16df034d4a2bcd, type: 3}
+  - {fileID: 21300000, guid: 9f5469b7414415d4a842edc5783d3f40, type: 3}
+  - {fileID: 21300000, guid: 29b7c5abdc2698946a55f249a96118ee, type: 3}
+  - {fileID: 21300000, guid: f72d5ebfb289a2445b9680a4e03b4bee, type: 3}
+  - {fileID: 21300000, guid: efecb10c0b799a14c9df32f7b763a26c, type: 3}
+  - {fileID: 21300000, guid: 6617f800f84725941aa51be93747038b, type: 3}
   maxRotation: 20

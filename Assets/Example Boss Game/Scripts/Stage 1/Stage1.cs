@@ -7,17 +7,18 @@ namespace BeeNice
     public class Stage1 : StageController
     {
         public static StageController instance;
+        public Spawner spawner;
         // Start is called before the first frame update
         protected override void Start()
         {
             base.Start();
             instance = this;
+            gameEnd.AddListener(WipeScene);
         }
 
-        IEnumerator EndGame()
+        private void WipeScene()
         {
-            yield return new WaitForSeconds(2);
-            gameEnd.Invoke();
+            spawner.StopSpawning();
         }
     }
 }

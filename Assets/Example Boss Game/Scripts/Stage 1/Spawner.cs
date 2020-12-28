@@ -32,5 +32,13 @@ namespace BeeNice
             Instantiate(spawnItems[Random.Range(0, spawnItems.Length)], spawnPoint.position, spawnPoint.rotation);
             StartCoroutine(SpawnItem(spawnDelay));
         }
+        public void StopSpawning()
+        {
+            StopAllCoroutines();
+            foreach (Ingredient g in GameObject.FindObjectsOfType<Ingredient>())
+            {
+                Destroy(g.gameObject);
+            }
+        }
     }
 }
