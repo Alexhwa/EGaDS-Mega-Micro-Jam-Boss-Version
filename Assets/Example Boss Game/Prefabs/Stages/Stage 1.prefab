@@ -365,7 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 13
   rb: {fileID: 2405564739667163685}
-  dampenFactor: 1.25
+  dampenFactor: 2
   stunTime: 1
   anim: {fileID: 2708067555806096284}
 --- !u!50 &2405564739667163685
@@ -550,7 +550,7 @@ PrefabInstance:
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
       propertyPath: spawnItems.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
@@ -568,7 +568,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnItems.Array.data[2]
       value: 
-      objectReference: {fileID: 3255259474569945331, guid: 9047d6c5148e14d4290151aee8e092c7,
+      objectReference: {fileID: 3255259474569945331, guid: 5354810adee8a234c959b39e5e186243,
         type: 3}
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}

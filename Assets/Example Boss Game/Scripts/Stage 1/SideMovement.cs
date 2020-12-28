@@ -36,14 +36,14 @@ namespace BeeNice
         {
             if (!stunned)
             {
-                if (Input.GetKey(KeyCode.A))
+                if (Input.GetAxis("Horizontal") < 0)
                 {
                     horizontal = -1;
                     var newVel = rb.velocity;
                     newVel.x = horizontal * moveSpeed;
                     rb.velocity = newVel;
                 }
-                else if (Input.GetKey(KeyCode.D))
+                else if (Input.GetAxis("Horizontal") > 0)
                 {
                     horizontal = 1;
                     var newVel = rb.velocity;
@@ -51,7 +51,7 @@ namespace BeeNice
                     rb.velocity = newVel;
                 }
 
-                if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+                if (Mathf.Abs((Input.GetAxis("Horizontal"))) < .5f || !Input.anyKey)
                 {
                     var dampVel = rb.velocity / dampenFactor;
                     rb.velocity = dampVel;
