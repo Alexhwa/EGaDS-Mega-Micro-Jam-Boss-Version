@@ -17,6 +17,8 @@ namespace BeeNice
         [Header("Cup Collision")]
         private int ingredientsGotten;
         private const int requiredIngredients = 6;
+
+        private bool gameOver;
         // Start is called before the first frame update
         void Start()
         {
@@ -73,9 +75,10 @@ namespace BeeNice
             else
             {
                 ingredientsGotten++;
-                if(ingredientsGotten == requiredIngredients)
+                if(ingredientsGotten == requiredIngredients && !gameOver)
                 {
                     Stage1.instance.gameEnd.Invoke();
+                    gameOver = true;
                 }
             }
             Destroy(ingredient.gameObject);
