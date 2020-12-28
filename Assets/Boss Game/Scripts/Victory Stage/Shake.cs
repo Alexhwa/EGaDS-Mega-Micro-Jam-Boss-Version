@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace BeeNice
 {
-    public class RocketHit : MonoBehaviour
+    public class Shake : MonoBehaviour
     {
-        public Animator explode;
         private Transform transform;
         private float shakeDuration = 0f;
         private float shakeMagnitude = 0.7f;
@@ -26,14 +24,25 @@ namespace BeeNice
         {
             initialPosition = transform.localPosition;
         }
-        public void RocketIsHit()
+        void Start()
         {
-            explode.SetTrigger("Explode");
-            shakeDuration = 0.5f;
+            shakeDuration = 9f;
         }
 
         void Update()
         {
+            if (shakeDuration < 3f)
+            {
+                shakeMagnitude = 0.7f;
+            }
+            else if (shakeDuration < 6f)
+            {
+                shakeMagnitude = 0.3f;
+            }
+            else
+            {
+                shakeMagnitude = 0.1f;
+            }
 
             if (shakeDuration > 0)
             {
