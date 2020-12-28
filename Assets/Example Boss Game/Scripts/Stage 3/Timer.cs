@@ -13,12 +13,12 @@ namespace BeeNice
         void Start()
         {
             animLength = needleAnim.GetCurrentAnimatorStateInfo(0).length;
-            Stage3.instance.LoseGame();
         }
 
         // Update is called once per frame
         void Update()
         {
+
         }
     }
 }

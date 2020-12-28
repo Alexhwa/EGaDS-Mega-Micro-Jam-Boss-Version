@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 56c1f8c69b6671c47aeaa403d7879a7d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -520,7 +520,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needleAnim: {fileID: 4542948328759764052}
-  cakeSprites: []
+  cakeSprites:
+  - {fileID: 21300000, guid: f79cd1bb16d7a6841b2b936326622093, type: 3}
+  - {fileID: 21300000, guid: 185120a39a4bde243844efa4e5c355ca, type: 3}
+  - {fileID: 21300000, guid: 96b711cca3989ec489e567b2e374a8ca, type: 3}
 --- !u!1 &7684769226886498051
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,4 +709,3 @@ MonoBehaviour:
   gameEnd:
     m_PersistentCalls:
       m_Calls: []
-  spawner: {fileID: 0}
