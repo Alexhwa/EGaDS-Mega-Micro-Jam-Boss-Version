@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5638943429737280357}
   - component: {fileID: 6956784543294958501}
+  - component: {fileID: 3467806317777466995}
   m_Layer: 0
   m_Name: Scene1_Rival
   m_TagString: Untagged
@@ -25,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105260374656923340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.022, y: 3.315, z: 0}
-  m_LocalScale: {x: 0.30661017, y: 0.30661017, z: 0.30661017}
+  m_LocalPosition: {x: 4.503, y: 2.96, z: 0}
+  m_LocalScale: {x: 0.2356653, y: 0.2356653, z: 0.2356653}
   m_Children: []
   m_Father: {fileID: 4453516538173425149}
   m_RootOrder: 2
@@ -81,6 +82,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3467806317777466995
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105260374656923340}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cbb928aa4141a41488ee5b64b9d944e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2688774322030062997
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +279,7 @@ GameObject:
   - component: {fileID: 7190799194871248651}
   - component: {fileID: 2405564739667163685}
   - component: {fileID: 2802811353717867403}
+  - component: {fileID: 2708067555806096284}
   m_Layer: 0
   m_Name: Chef
   m_TagString: Untagged
@@ -345,6 +366,8 @@ MonoBehaviour:
   moveSpeed: 13
   rb: {fileID: 2405564739667163685}
   dampenFactor: 1.25
+  stunTime: 1
+  anim: {fileID: 2708067555806096284}
 --- !u!50 &2405564739667163685
 Rigidbody2D:
   serializedVersion: 4
@@ -382,6 +405,25 @@ CapsuleCollider2D:
   m_Offset: {x: 2.5243926, y: -1.8874755}
   m_Size: {x: 2.62, y: 0.3170086}
   m_Direction: 1
+--- !u!95 &2708067555806096284
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3786757944488638280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a13c689a9b09014e94d42d30493c9da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9053899735557351783
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +540,7 @@ PrefabInstance:
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
       propertyPath: spawnDelay
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
@@ -508,7 +550,7 @@ PrefabInstance:
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
       propertyPath: spawnItems.Array.size
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
