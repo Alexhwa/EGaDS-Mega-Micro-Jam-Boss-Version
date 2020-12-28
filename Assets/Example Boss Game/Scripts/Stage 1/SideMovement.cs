@@ -11,10 +11,19 @@ namespace BeeNice
         public Rigidbody2D rb;
 
         private bool stunned;
+
+        [Header("Cup Collision")]
+        private int ingredientsGotten;
+        private const int requiredIngredients = 5;
         // Start is called before the first frame update
         void Start()
         {
             
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            GotIngredient(collision.gameObject.GetComponent<Ingredient>());
         }
 
         private void FixedUpdate()
@@ -42,9 +51,21 @@ namespace BeeNice
         {
             if (ingredient.dangerous)
             {
-
+                Stun();
             }
-            //ingredientsGotten++;
+            else
+            {
+                ingredientsGotten++;
+                if(ingredientsGotten == requiredIngredients)
+                {
+                    Stage1.instance.gameEnd.Invoke();
+                }
+            }
+            Destroy(ingredient.gameObject);
+        }
+        private void Stun()
+        {
+
         }
     }
 }
