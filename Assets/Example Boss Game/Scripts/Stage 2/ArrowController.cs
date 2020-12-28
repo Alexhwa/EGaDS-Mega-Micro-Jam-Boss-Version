@@ -18,6 +18,9 @@ namespace BeeNice {
         private int tapInterval;
         public int tapStrength;
         public Animator chefFireAnim;
+        public Animator rivalFireAnim;
+        public Animator chef;
+        public Animator rival;
         //Fire thresholds
         public int flameThresholdMid;
         public int flameThresholdSmall;
@@ -26,6 +29,7 @@ namespace BeeNice {
         private int tapCount;
         public int requiredTaps;
         public float loseTime;
+        private float loseTimeSlice;
         private bool gameOver;
 
         private UnityEvent onKeyChange;
@@ -48,11 +52,13 @@ namespace BeeNice {
             tapInterval = flameThresholdNone + 1;
             onKeyChange = new UnityEvent();
             onKeyChange.AddListener(ChangeArrow);
+            loseTimeSlice = loseTime / 4; //Because there are 4 fire states
         }
 
         // Update is called once per frame
         void Update()
         {
+            loseTime = loseTime - Time.deltaTime;
 
             if (Input.GetAxis("Horizontal") > 0 && curArrow == ArrowActive.Left)
             {
@@ -92,11 +98,34 @@ namespace BeeNice {
                 fireState = FireState.None;
             }
             chefFireAnim.SetInteger("FireState", (int)fireState);
+            chef.SetFloat("AnimSpeed", (int)fireState);
 
             if (tapCount >= requiredTaps && !gameOver)
             {
                 gameOver = true;
                 Stage2.instance.gameEnd.Invoke();
+            }
+
+            //Rival chef's flame
+            if (loseTime < loseTimeSlice * 1)
+            {
+                rivalFireAnim.SetInteger("FireState", 3);
+                rival.SetFloat("AnimSpeed", 3);
+            }
+            else if (loseTime < loseTimeSlice * 2)
+            {
+                rivalFireAnim.SetInteger("FireState", 2);
+                rival.SetFloat("AnimSpeed", 2);
+            }
+            else if (loseTime < loseTimeSlice * 3)
+            {
+                rivalFireAnim.SetInteger("FireState", 1);
+                rival.SetFloat("AnimSpeed", 1);
+            }
+            else
+            {
+                rivalFireAnim.SetInteger("FireState", 0);
+                rival.SetFloat("AnimSpeed", 0);
             }
         }
         private void FixedUpdate()
