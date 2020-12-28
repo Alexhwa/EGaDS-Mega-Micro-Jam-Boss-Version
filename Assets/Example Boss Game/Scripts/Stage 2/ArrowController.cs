@@ -11,16 +11,31 @@ public class ArrowController : MonoBehaviour
     public Sprite rightInactive;
     public Sprite leftActive;
     public Sprite rightActive;
-    private float tapInterval;
+
+    private int tapInterval;
+    public int tapStrength;
+    public Animator chefFireAnim;
+    public int flameThresholdMid;
+    public int flameThresholdSmall;
+    public int flameThresholdNone;
+
     private UnityEvent onKeyChange;
+
     private ArrowActive curArrow = ArrowActive.Left;
     private enum ArrowActive
     {
         Left, Right
     }
+
+    private FireState fireState = FireState.None;
+    private enum FireState
+    {
+        None, Small, Medium, Big
+    }
     // Start is called before the first frame update
     void Start()
     {
+        tapInterval = flameThresholdNone + 1;
         onKeyChange = new UnityEvent();
         onKeyChange.AddListener(ChangeArrow);
     }
@@ -28,15 +43,49 @@ public class ArrowController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetAxis("Horizontal") > 0 && curArrow == ArrowActive.Left)
         {
             curArrow = ArrowActive.Right;
             onKeyChange.Invoke();
+            if (tapInterval > 0)
+            {
+                tapInterval -= tapStrength;
+            }
         }
         else if (Input.GetAxis("Horizontal") < 0 && curArrow == ArrowActive.Right)
         {
             curArrow = ArrowActive.Left;
             onKeyChange.Invoke();
+            if (tapInterval > 0)
+            {
+                tapInterval -= tapStrength;
+            }
+        }
+
+        if(tapInterval < flameThresholdMid)
+        {
+            fireState = FireState.Big;
+        }
+        else if (tapInterval >= flameThresholdMid && tapInterval < flameThresholdSmall)
+        {
+            fireState = FireState.Medium;
+        }
+        else if (tapInterval >= flameThresholdSmall && tapInterval < flameThresholdNone)
+        {
+            fireState = FireState.Small;
+        }
+        else if (tapInterval>= flameThresholdSmall)
+        {
+            fireState = FireState.None;
+        }
+        chefFireAnim.SetInteger("FireState", (int) fireState);
+    }
+    private void FixedUpdate()
+    {
+        if (tapInterval < flameThresholdNone + 1)
+        {
+            tapInterval++;
         }
     }
     private void ChangeArrow()
