@@ -259,7 +259,6 @@ GameObject:
   - component: {fileID: 7190799194871248651}
   - component: {fileID: 2405564739667163685}
   - component: {fileID: 2802811353717867403}
-  - component: {fileID: 246085644980165681}
   m_Layer: 0
   m_Name: Chef
   m_TagString: Untagged
@@ -343,8 +342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976e798385eca47459f0e9f50852a99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 13
   rb: {fileID: 2405564739667163685}
+  dampenFactor: 1.25
 --- !u!50 &2405564739667163685
 Rigidbody2D:
   serializedVersion: 4
@@ -376,28 +376,12 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 2.5243926, y: -1.9159477}
-  m_Size: {x: 4.7869983, y: 1.7219583}
-  m_Direction: 1
---- !u!58 &246085644980165681
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3786757944488638280}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06976068, y: -3.16722}
-  serializedVersion: 2
-  m_Radius: 1.4318174
+  m_Offset: {x: 2.5243926, y: -1.8874755}
+  m_Size: {x: 2.62, y: 0.3170086}
+  m_Direction: 1
 --- !u!1 &9053899735557351783
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +432,7 @@ MonoBehaviour:
   gameEnd:
     m_PersistentCalls:
       m_Calls: []
+  spawner: {fileID: 1235758011}
 --- !u!1001 &8114320691214596002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,7 +498,7 @@ PrefabInstance:
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
       propertyPath: spawnDelay
-      value: 1.2
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
@@ -523,7 +508,7 @@ PrefabInstance:
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
       propertyPath: spawnItems.Array.size
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
@@ -534,6 +519,24 @@ PrefabInstance:
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
       propertyPath: spawnItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 3255259474569945331, guid: 5354810adee8a234c959b39e5e186243,
+        type: 3}
+    - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
+        type: 3}
+      propertyPath: spawnItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 3255259474569945331, guid: 9047d6c5148e14d4290151aee8e092c7,
+        type: 3}
+    - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
+        type: 3}
+      propertyPath: spawnItems.Array.data[3]
+      value: 
+      objectReference: {fileID: 3255259474569945331, guid: 9047d6c5148e14d4290151aee8e092c7,
+        type: 3}
+    - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
+        type: 3}
+      propertyPath: spawnItems.Array.data[4]
       value: 
       objectReference: {fileID: 3255259474569945331, guid: 9047d6c5148e14d4290151aee8e092c7,
         type: 3}
@@ -560,3 +563,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8114320691214596002}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1235758011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
+    type: 3}
+  m_PrefabInstance: {fileID: 8114320691214596002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a995fd09725b2da48bb2a550c8cd2d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

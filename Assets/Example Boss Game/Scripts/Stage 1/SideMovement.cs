@@ -9,8 +9,9 @@ namespace BeeNice
         private float horizontal;
         public float moveSpeed;
         public Rigidbody2D rb;
-
+        public float dampenFactor = 1.2f;
         private bool stunned;
+        public float stunTime;
 
         [Header("Cup Collision")]
         private int ingredientsGotten;
@@ -23,28 +24,43 @@ namespace BeeNice
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            GotIngredient(collision.gameObject.GetComponent<Ingredient>());
+            var possibleIngredient = collision.gameObject.GetComponent<Ingredient>();
+            if(possibleIngredient != null)
+            {
+                GotIngredient(possibleIngredient);
+            }
         }
 
         private void FixedUpdate()
         {
-            
-            if (Input.GetKey(KeyCode.A))
+            if (!stunned)
             {
-                horizontal = -1;
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                horizontal = 1;
+                if (Input.GetKey(KeyCode.A))
+                {
+                    horizontal = -1;
+                    var newVel = rb.velocity;
+                    newVel.x = horizontal * moveSpeed;
+                    rb.velocity = newVel;
+                }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    horizontal = 1;
+                    var newVel = rb.velocity;
+                    newVel.x = horizontal * moveSpeed;
+                    rb.velocity = newVel;
+                }
+
+                if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+                {
+                    var dampVel = rb.velocity / dampenFactor;
+                    rb.velocity = dampVel;
+                }
             }
             else
             {
-                horizontal = 0;
+                var dampVel = rb.velocity / dampenFactor;
+                rb.velocity = dampVel;
             }
-
-            var newVel = rb.velocity;
-            newVel.x = horizontal * moveSpeed;
-            rb.velocity = newVel;
         }
 
         public void GotIngredient(Ingredient ingredient)
@@ -65,7 +81,16 @@ namespace BeeNice
         }
         private void Stun()
         {
-
+            if (stunned == false)
+            {
+                stunned = true;
+                StartCoroutine(ResetStunned(stunTime));
+            }
+        }
+        private IEnumerator ResetStunned(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            stunned = false;
         }
     }
 }
