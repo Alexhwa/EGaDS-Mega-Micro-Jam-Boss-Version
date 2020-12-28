@@ -16,7 +16,7 @@ namespace BeeNice
 
         [Header("Cup Collision")]
         private int ingredientsGotten;
-        private const int requiredIngredients = 6;
+        public int requiredIngredients = 5;
 
         private bool gameOver;
         // Start is called before the first frame update

@@ -8,6 +8,7 @@ namespace BeeNice
     {
         public Transform[] spawnPoints;
         public GameObject[] spawnItems;
+        private int spawnIndex = 0;
         public float spawnDelay;
         // Start is called before the first frame update
         void Start()
@@ -29,8 +30,14 @@ namespace BeeNice
         {
             yield return new WaitForSeconds(delay);
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            Instantiate(spawnItems[Random.Range(0, spawnItems.Length)], spawnPoint.position, spawnPoint.rotation);
+            Instantiate(spawnItems[spawnIndex], spawnPoint.position, spawnPoint.rotation);
             StartCoroutine(SpawnItem(spawnDelay));
+
+            spawnIndex++;
+            if(spawnIndex >= spawnItems.Length)
+            {
+                spawnIndex = 0;
+            }
         }
         public void StopSpawning()
         {
