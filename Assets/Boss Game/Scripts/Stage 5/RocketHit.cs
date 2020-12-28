@@ -31,6 +31,10 @@ public class RocketHit : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            RocketIsHit();
+        }
 
         if (shakeDuration > 0)
         {
