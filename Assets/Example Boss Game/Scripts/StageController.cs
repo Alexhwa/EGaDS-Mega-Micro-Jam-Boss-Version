@@ -9,7 +9,6 @@ namespace BeeNice
     {
         [HideInInspector]
         public UnityEvent gameEnd;
-        private int ingredientsGotten;
         // Start is called before the first frame update
         protected virtual void Start()
         {
@@ -17,6 +16,12 @@ namespace BeeNice
             {
                 gameEnd = new UnityEvent();
             }
+        }
+
+        public virtual void LoseGame()
+        {
+            BossGameManager.Instance.bossGame.gameWin = false;
+            BossGameManager.Instance.bossGame.gameOver = true;
         }
     }
 }
