@@ -139,6 +139,8 @@ MonoBehaviour:
   flameThresholdMid: 20
   flameThresholdSmall: 80
   flameThresholdNone: 120
+  requiredTaps: 50
+  loseTime: 8
 --- !u!1 &1547399930263344983
 GameObject:
   m_ObjectHideFlags: 0

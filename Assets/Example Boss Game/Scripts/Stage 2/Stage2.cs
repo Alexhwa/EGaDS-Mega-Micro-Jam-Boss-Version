@@ -11,12 +11,6 @@ namespace BeeNice {
         {
             base.Start();
             instance = this;
-            gameEnd.AddListener(EndStage);
-        }
-
-        private void EndStage()
-        {
-
         }
     }
 }

@@ -3,102 +3,121 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ArrowController : MonoBehaviour
-{
-    public SpriteRenderer leftArrow;
-    public SpriteRenderer rightArrow;
-    public Sprite leftInactive;
-    public Sprite rightInactive;
-    public Sprite leftActive;
-    public Sprite rightActive;
+namespace BeeNice {
 
-    private int tapInterval;
-    public int tapStrength;
-    public Animator chefFireAnim;
-    public int flameThresholdMid;
-    public int flameThresholdSmall;
-    public int flameThresholdNone;
-
-    private UnityEvent onKeyChange;
-
-    private ArrowActive curArrow = ArrowActive.Left;
-    private enum ArrowActive
+    public class ArrowController : MonoBehaviour
     {
-        Left, Right
-    }
+        public SpriteRenderer leftArrow;
+        public SpriteRenderer rightArrow;
+        public Sprite leftInactive;
+        public Sprite rightInactive;
+        public Sprite leftActive;
+        public Sprite rightActive;
 
-    private FireState fireState = FireState.None;
-    private enum FireState
-    {
-        None, Small, Medium, Big
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        tapInterval = flameThresholdNone + 1;
-        onKeyChange = new UnityEvent();
-        onKeyChange.AddListener(ChangeArrow);
-    }
+        //Tap Variables
+        private int tapInterval;
+        public int tapStrength;
+        public Animator chefFireAnim;
+        //Fire thresholds
+        public int flameThresholdMid;
+        public int flameThresholdSmall;
+        public int flameThresholdNone;
+        //Win/Lose conditions
+        private int tapCount;
+        public int requiredTaps;
+        public float loseTime;
+        private bool gameOver;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        if (Input.GetAxis("Horizontal") > 0 && curArrow == ArrowActive.Left)
+        private UnityEvent onKeyChange;
+
+
+        private ArrowActive curArrow = ArrowActive.Left;
+        private enum ArrowActive
         {
-            curArrow = ArrowActive.Right;
-            onKeyChange.Invoke();
-            if (tapInterval > 0)
+            Left, Right
+        }
+
+        private FireState fireState = FireState.None;
+        private enum FireState
+        {
+            None, Small, Medium, Big
+        }
+        // Start is called before the first frame update
+        void Start()
+        {
+            tapInterval = flameThresholdNone + 1;
+            onKeyChange = new UnityEvent();
+            onKeyChange.AddListener(ChangeArrow);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+            if (Input.GetAxis("Horizontal") > 0 && curArrow == ArrowActive.Left)
             {
-                tapInterval -= tapStrength;
+                curArrow = ArrowActive.Right;
+                tapCount++;
+                onKeyChange.Invoke();
+                if (tapInterval > 0)
+                {
+                    tapInterval -= tapStrength;
+                }
+            }
+            else if (Input.GetAxis("Horizontal") < 0 && curArrow == ArrowActive.Right)
+            {
+                curArrow = ArrowActive.Left;
+                tapCount++;
+                onKeyChange.Invoke();
+                if (tapInterval > 0)
+                {
+                    tapInterval -= tapStrength;
+                }
+            }
+
+            if (tapInterval < flameThresholdMid)
+            {
+                fireState = FireState.Big;
+            }
+            else if (tapInterval >= flameThresholdMid && tapInterval < flameThresholdSmall)
+            {
+                fireState = FireState.Medium;
+            }
+            else if (tapInterval >= flameThresholdSmall && tapInterval < flameThresholdNone)
+            {
+                fireState = FireState.Small;
+            }
+            else if (tapInterval >= flameThresholdSmall)
+            {
+                fireState = FireState.None;
+            }
+            chefFireAnim.SetInteger("FireState", (int)fireState);
+
+            if (tapCount >= requiredTaps && !gameOver)
+            {
+                gameOver = true;
+                Stage2.instance.gameEnd.Invoke();
             }
         }
-        else if (Input.GetAxis("Horizontal") < 0 && curArrow == ArrowActive.Right)
+        private void FixedUpdate()
         {
-            curArrow = ArrowActive.Left;
-            onKeyChange.Invoke();
-            if (tapInterval > 0)
+            if (tapInterval < flameThresholdNone + 1)
             {
-                tapInterval -= tapStrength;
+                tapInterval++;
             }
         }
-
-        if(tapInterval < flameThresholdMid)
+        private void ChangeArrow()
         {
-            fireState = FireState.Big;
-        }
-        else if (tapInterval >= flameThresholdMid && tapInterval < flameThresholdSmall)
-        {
-            fireState = FireState.Medium;
-        }
-        else if (tapInterval >= flameThresholdSmall && tapInterval < flameThresholdNone)
-        {
-            fireState = FireState.Small;
-        }
-        else if (tapInterval>= flameThresholdSmall)
-        {
-            fireState = FireState.None;
-        }
-        chefFireAnim.SetInteger("FireState", (int) fireState);
-    }
-    private void FixedUpdate()
-    {
-        if (tapInterval < flameThresholdNone + 1)
-        {
-            tapInterval++;
-        }
-    }
-    private void ChangeArrow()
-    {
-        if(curArrow == ArrowActive.Left)
-        {
-            leftArrow.sprite = leftActive;
-            rightArrow.sprite = rightInactive;
-        }
-        else if(curArrow == ArrowActive.Right)
-        {
-            leftArrow.sprite = leftInactive;
-            rightArrow.sprite = rightActive;
+            if (curArrow == ArrowActive.Left)
+            {
+                leftArrow.sprite = leftActive;
+                rightArrow.sprite = rightInactive;
+            }
+            else if (curArrow == ArrowActive.Right)
+            {
+                leftArrow.sprite = leftInactive;
+                rightArrow.sprite = rightActive;
+            }
         }
     }
 }
