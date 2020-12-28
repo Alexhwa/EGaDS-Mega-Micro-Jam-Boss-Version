@@ -365,7 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 13
   rb: {fileID: 2405564739667163685}
-  dampenFactor: 2
+  dampenFactor: 1.3
   stunTime: 1
   anim: {fileID: 2708067555806096284}
 --- !u!50 &2405564739667163685
