@@ -137,6 +137,8 @@ MonoBehaviour:
   tapStrength: 7
   chefFireAnim: {fileID: 8622106243668552111}
   rivalFireAnim: {fileID: 3123947149366722287}
+  chef: {fileID: 954330365028572881}
+  rival: {fileID: 9053041496282627399}
   flameThresholdMid: 20
   flameThresholdSmall: 80
   flameThresholdNone: 120
