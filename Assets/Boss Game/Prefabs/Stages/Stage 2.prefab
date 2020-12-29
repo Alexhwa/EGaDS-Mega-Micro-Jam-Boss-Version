@@ -134,7 +134,7 @@ MonoBehaviour:
     type: 3}
   rightActive: {fileID: 67926103340967526, guid: e17fb09f5a97f2b4c800d21d702439a4,
     type: 3}
-  tapStrength: 7
+  tapStrength: 8
   chefFireAnim: {fileID: 8622106243668552111}
   rivalFireAnim: {fileID: 3123947149366722287}
   chef: {fileID: 954330365028572881}
@@ -2074,7 +2074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a779a9ec856424b92488234530b7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEnd:
+  gameWon:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8980138536505310821
