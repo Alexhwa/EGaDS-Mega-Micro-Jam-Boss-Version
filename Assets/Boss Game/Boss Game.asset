@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8c7539471eabd498d8a806c263dcff, type: 3}
   m_Name: Boss Game
   m_EditorClassIdentifier: 
-  gameWin: 0
-  gameOver: 0
+  gameWin: 1
+  gameOver: 1
   sounds:
   - soundName: badfood
     clip: {fileID: 8300000, guid: 4907d23cb219e4cdca048cf195dc25ce, type: 3}
@@ -114,6 +114,12 @@ MonoBehaviour:
   - soundName: success
     clip: {fileID: 8300000, guid: 69c849bfd03824876bdb21fc45ee5a16, type: 3}
     volume: 0.4
+    minPitch: 1
+    maxPitch: 1
+    source: {fileID: 0}
+  - soundName: victory
+    clip: {fileID: 8300000, guid: ca0e13caeae55a146ba53dada47f7fc4, type: 3}
+    volume: 0.3
     minPitch: 1
     maxPitch: 1
     source: {fileID: 0}

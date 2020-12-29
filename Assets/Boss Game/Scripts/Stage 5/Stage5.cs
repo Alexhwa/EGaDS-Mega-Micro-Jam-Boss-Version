@@ -22,7 +22,7 @@ namespace BeeNice
             yield return new WaitForSeconds(stageLength - 1.5f);
             if (finalRound)
             {
-
+                BossGameManager.Instance.PlaySound("victory");
             }
             yield return new WaitForSeconds(1.5f);
             gameWon.Invoke();
