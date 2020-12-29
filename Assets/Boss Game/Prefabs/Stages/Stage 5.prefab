@@ -1529,7 +1529,7 @@ MonoBehaviour:
   gameWon:
     m_PersistentCalls:
       m_Calls: []
-  stageLength: 24
+  stageLength: 20
 --- !u!1 &7700480901158614246
 GameObject:
   m_ObjectHideFlags: 0
