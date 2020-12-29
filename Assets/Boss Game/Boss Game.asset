@@ -83,7 +83,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - soundName: missilelaunch
     clip: {fileID: 8300000, guid: 132b7b268c78e431d83b943cd92924ba, type: 3}
-    volume: 0.15
+    volume: 0.18
     minPitch: 0.76
     maxPitch: 1
     source: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - soundName: rocketloop
     clip: {fileID: 8300000, guid: 85ec850bd82ce4c6db62e1189889eb12, type: 3}
-    volume: 0.15
+    volume: 0.36
     minPitch: 1
     maxPitch: 1
     source: {fileID: 0}
