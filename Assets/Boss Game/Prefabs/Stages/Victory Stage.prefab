@@ -712,7 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7811904070361470513}
   - component: {fileID: 7784464609673011647}
-  - component: {fileID: 1028890567151773853}
+  - component: {fileID: 704141066134498349}
   m_Layer: 0
   m_Name: Victory Stage
   m_TagString: Untagged
@@ -785,7 +785,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1028890567151773853
+--- !u!114 &704141066134498349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -794,13 +794,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8471076553508100426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74192fa5cdb64ef449e17763ee2a3629, type: 3}
+  m_Script: {fileID: 11500000, guid: cbf66c1f7536a9845911e140623c346d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameWon:
     m_PersistentCalls:
       m_Calls: []
-  endDelay: 1.5
+  stageLength: 14
+  finalRound: 1
 --- !u!1 &9193287558968920522
 GameObject:
   m_ObjectHideFlags: 0

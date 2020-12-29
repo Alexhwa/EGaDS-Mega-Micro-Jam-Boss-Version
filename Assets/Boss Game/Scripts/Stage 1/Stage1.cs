@@ -11,12 +11,15 @@ namespace BeeNice
         public Spawner spawner;
         public float stageLength;
         public Slider timer;
+        private AudioSource mainMusic;
         // Start is called before the first frame update
         protected override void Start()
         {
             base.Start();
             instance = this;
             gameWon.AddListener(WipeScene);
+            mainMusic = GameObject.Find("Main Music").GetComponent<AudioSource>();
+            mainMusic.Play();
         }
 
         private void WipeScene()
@@ -26,7 +29,7 @@ namespace BeeNice
         private void FixedUpdate()
         {
             timer.value -= Time.deltaTime;
-            if(timer.value < 0)
+            if(timer.value <= Time.deltaTime)
             {
                 LoseGame();
             }

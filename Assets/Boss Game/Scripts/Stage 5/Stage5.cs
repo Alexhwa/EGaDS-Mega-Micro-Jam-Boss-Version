@@ -8,6 +8,7 @@ namespace BeeNice
     {
         public static StageController instance;
         public float stageLength;
+        public bool finalRound;
         // Start is called before the first frame update
         protected override void Start()
         {
@@ -19,6 +20,11 @@ namespace BeeNice
         {
             yield return new WaitForSeconds(stageLength);
             gameWon.Invoke();
+            if (finalRound)
+            {
+                BossGameManager.Instance.bossGame.gameWin = true;
+                BossGameManager.Instance.bossGame.gameOver = true;
+            }
         }
     }
 }
