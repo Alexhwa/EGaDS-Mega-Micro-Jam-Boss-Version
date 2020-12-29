@@ -17,6 +17,7 @@ namespace BeeNice
         // Start is called before the first frame update
         void Start()
         {
+            BossGameManager.Instance.PlaySound("timer");
             animLength = needleAnim.GetCurrentAnimatorStateInfo(0).length;
         }
 
@@ -48,6 +49,7 @@ namespace BeeNice
 
         private void TakeOutCake()
         {
+            BossGameManager.Instance.PlaySound("ready");
             gameOver = true;
             Destroy(needleAnim);
             SpriteRenderer sprtrend = cake.GetComponent<SpriteRenderer>();

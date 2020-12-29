@@ -8,6 +8,7 @@ namespace BeeNice
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            BossGameManager.Instance.PlaySound("rocketexplode");
             GetComponent<RocketHit>().RocketIsHit();
         }
     }

@@ -16,12 +16,22 @@ namespace BeeNice
         private bool gameOver;
         Vector3 initialPosition;
 
+        private IEnumerator PlayLoopingSound(string soundName)
+        {
+            while (true)
+            {
+                BossGameManager.Instance.PlaySound(soundName);
+                yield return new WaitForSeconds(.4f);
+            }
+        }
         void Awake()
         {
             if (transform == null)
             {
                 transform = GetComponent(typeof(Transform)) as Transform;
             }
+            BossGameManager.Instance.PlaySound("rocketlaunch");
+            StartCoroutine(PlayLoopingSound("rocketloop"));
         }
 
         void OnEnable()

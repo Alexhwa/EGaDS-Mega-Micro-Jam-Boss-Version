@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 8605396696366941716}
   - component: {fileID: 2978202384367661101}
   - component: {fileID: 3413037785864652912}
+  - component: {fileID: 1165070496192978434}
   m_Layer: 11
   m_Name: cake_piece_3
   m_TagString: Untagged
@@ -492,6 +493,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &1165070496192978434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793542257537823288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f6603ededc7be4dbea33b718992dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5434426669664074419
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +517,7 @@ GameObject:
   - component: {fileID: 7885478398003764782}
   - component: {fileID: 4046194379422093039}
   - component: {fileID: 1230167729854515357}
+  - component: {fileID: 883454855335561765}
   m_Layer: 11
   m_Name: cake_piece_2
   m_TagString: Untagged
@@ -622,6 +636,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &883454855335561765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434426669664074419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f6603ededc7be4dbea33b718992dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6302454518912164921
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,6 +694,7 @@ GameObject:
   - component: {fileID: 8393662316874102828}
   - component: {fileID: 604187206966223447}
   - component: {fileID: 3735905576257087850}
+  - component: {fileID: 6001898289364569969}
   m_Layer: 11
   m_Name: cake_piece_1
   m_TagString: Untagged
@@ -786,6 +813,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &6001898289364569969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6622028021310844136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f6603ededc7be4dbea33b718992dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7134506062598215758
 GameObject:
   m_ObjectHideFlags: 0

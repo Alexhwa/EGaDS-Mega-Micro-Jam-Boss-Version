@@ -1326,6 +1326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
+      propertyPath: spawnSFX
+      value: fall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
+        type: 3}
       propertyPath: spawnDelay
       value: 0.5
       objectReference: {fileID: 0}

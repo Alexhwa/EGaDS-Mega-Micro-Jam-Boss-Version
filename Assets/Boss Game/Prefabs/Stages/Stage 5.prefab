@@ -88,6 +88,7 @@ MonoBehaviour:
   spawnItems:
   - {fileID: 1133862114119558106, guid: f8478c173bd73c4489fad10ee480638d, type: 3}
   startDelay: 2.5
+  spawnSFX: missilelaunch
   spawnDelay: 0.2
 --- !u!1 &761176732
 GameObject:

@@ -10,6 +10,7 @@ namespace BeeNice
         public GameObject[] spawnItems;
         private int spawnIndex = 0;
         public float startDelay;
+        public string spawnSFX;
         public float spawnDelay;
         // Start is called before the first frame update
         void Start()
@@ -30,6 +31,10 @@ namespace BeeNice
         private IEnumerator SpawnItem(float delay)
         {
             yield return new WaitForSeconds(delay);
+            if (Random.Range(0, 2) == 0)
+            {
+                BossGameManager.Instance.PlaySound(spawnSFX);
+            }
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(spawnItems[spawnIndex], spawnPoint.position, spawnPoint.rotation, transform);
             StartCoroutine(SpawnItem(spawnDelay));
