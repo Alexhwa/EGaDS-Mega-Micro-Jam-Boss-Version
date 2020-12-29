@@ -1529,7 +1529,11 @@ MonoBehaviour:
   gameWon:
     m_PersistentCalls:
       m_Calls: []
+  introText: {fileID: 5329481366964276276, guid: d2638672d3e8b524fbb0271c612a77bd,
+    type: 3}
+  introName: Dodge!
   stageLength: 20
+  finalRound: 0
 --- !u!1 &7700480901158614246
 GameObject:
   m_ObjectHideFlags: 0

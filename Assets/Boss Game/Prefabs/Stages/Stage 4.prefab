@@ -1074,6 +1074,9 @@ MonoBehaviour:
   gameWon:
     m_PersistentCalls:
       m_Calls: []
+  introText: {fileID: 5329481366964276276, guid: d2638672d3e8b524fbb0271c612a77bd,
+    type: 3}
+  introName: Stack!
   killZone: {fileID: 5640044774720984697}
   stageLength: 9
 --- !u!1001 &5428981029464298652
