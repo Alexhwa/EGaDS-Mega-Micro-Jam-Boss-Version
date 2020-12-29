@@ -67,6 +67,7 @@ namespace BeeNice
                 ((Stage3)Stage3.instance).DelayEnd(false);
             }
             sprtrend.color = Color.white;
+            cake.GetComponent<Animator>().SetBool("isDone", true);
         }
     }
 }
