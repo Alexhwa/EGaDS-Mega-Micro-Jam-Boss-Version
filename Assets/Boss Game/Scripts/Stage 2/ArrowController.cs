@@ -66,12 +66,14 @@ namespace BeeNice {
                 curArrow = ArrowActive.Right;
                 onKeyChange.Invoke();
                 tapInterval -= tapStrength;
+                BossGameManager.Instance.PlaySound("mix1");
             }
             else if (Input.GetAxis("Horizontal") < 0 && curArrow == ArrowActive.Right)
             {
                 curArrow = ArrowActive.Left;
                 onKeyChange.Invoke();
                 tapInterval -= tapStrength;
+                BossGameManager.Instance.PlaySound("mix2");
             }
 
             //Sliders

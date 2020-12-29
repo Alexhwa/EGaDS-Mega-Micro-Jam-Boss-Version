@@ -70,10 +70,12 @@ namespace BeeNice
         {
             if (ingredient.dangerous)
             {
+                BossGameManager.Instance.PlaySound("badfood");
                 Stun();
             }
             else
             {
+                BossGameManager.Instance.PlaySound("goodfood");
                 ingredientsGotten++;
                 if(ingredientsGotten == requiredIngredients && !gameOver)
                 {
