@@ -24,6 +24,7 @@ namespace BeeNice
         {
             sceneTransition.Play("Swipe");
             StartCoroutine(DelayedLoadStage(stageLoadDelay));
+            BossGameManager.Instance.PlaySound("success");
         }
         private IEnumerator DelayedLoadStage(float delay)
         {

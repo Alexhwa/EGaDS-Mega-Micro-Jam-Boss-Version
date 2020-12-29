@@ -30,6 +30,7 @@ namespace BeeNice
         {
             BossGameManager.Instance.bossGame.gameWin = false;
             BossGameManager.Instance.bossGame.gameOver = true;
+            BossGameManager.Instance.PlaySound("fail");
         }
     }
 }

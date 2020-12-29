@@ -105,3 +105,15 @@ MonoBehaviour:
     minPitch: 1
     maxPitch: 1
     source: {fileID: 0}
+  - soundName: fail
+    clip: {fileID: 8300000, guid: ae94680f5e50c49fcb9faaae60716960, type: 3}
+    volume: 0.15
+    minPitch: 1
+    maxPitch: 1
+    source: {fileID: 0}
+  - soundName: success
+    clip: {fileID: 8300000, guid: 69c849bfd03824876bdb21fc45ee5a16, type: 3}
+    volume: 0.4
+    minPitch: 1
+    maxPitch: 1
+    source: {fileID: 0}
