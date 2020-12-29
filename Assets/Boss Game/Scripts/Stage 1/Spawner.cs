@@ -11,6 +11,7 @@ namespace BeeNice
         private int spawnIndex = 0;
         public float startDelay;
         public string spawnSFX;
+        public float spawnSoundFreq;
         public float spawnDelay;
         // Start is called before the first frame update
         void Start()
@@ -31,7 +32,7 @@ namespace BeeNice
         private IEnumerator SpawnItem(float delay)
         {
             yield return new WaitForSeconds(delay);
-            if (Random.Range(0, 2) == 0)
+            if (Random.Range(0f, 1f) < spawnSoundFreq)
             {
                 BossGameManager.Instance.PlaySound(spawnSFX);
             }

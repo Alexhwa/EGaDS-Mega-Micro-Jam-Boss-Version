@@ -1341,6 +1341,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
         type: 3}
+      propertyPath: spawnSoundFreq
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114320689996667929, guid: 86e5373cc5699f44fba485cc3ff70e76,
+        type: 3}
       propertyPath: spawnItems.Array.size
       value: 7
       objectReference: {fileID: 0}

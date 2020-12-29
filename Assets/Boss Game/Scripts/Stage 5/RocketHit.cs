@@ -16,12 +16,13 @@ namespace BeeNice
         private bool gameOver;
         Vector3 initialPosition;
 
+        public bool shouldPlay = true;
         private IEnumerator PlayLoopingSound(string soundName)
         {
-            while (true)
+            while (shouldPlay)
             {
                 BossGameManager.Instance.PlaySound(soundName);
-                yield return new WaitForSeconds(.4f);
+                yield return new WaitForSeconds(10.188f);
             }
         }
         void Awake()

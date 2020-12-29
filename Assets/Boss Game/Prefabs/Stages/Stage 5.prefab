@@ -89,6 +89,7 @@ MonoBehaviour:
   - {fileID: 1133862114119558106, guid: f8478c173bd73c4489fad10ee480638d, type: 3}
   startDelay: 2.5
   spawnSFX: missilelaunch
+  spawnSoundFreq: 0.75
   spawnDelay: 0.2
 --- !u!1 &761176732
 GameObject:
@@ -1224,6 +1225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explode: {fileID: 2001291363043616417}
   movementScript: {fileID: 0}
+  shouldPlay: 1
 --- !u!70 &7822099909489622703
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1533,6 +1535,7 @@ MonoBehaviour:
   introText: {fileID: 5329481366964276276, guid: d2638672d3e8b524fbb0271c612a77bd,
     type: 3}
   introName: Dodge!
+  rocketHit: {fileID: 7272560229922587445}
   stageLength: 20
   finalRound: 0
 --- !u!1 &7700480901158614246
