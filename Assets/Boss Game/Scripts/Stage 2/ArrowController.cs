@@ -102,7 +102,7 @@ namespace BeeNice {
             if (tapInterval <= winThreshold && !gameOver)
             {
                 gameOver = true;
-                Stage2.instance.gameEnd.Invoke();
+                Stage2.instance.gameWon.Invoke();
             }
             if(loseTime <= 0)
             {

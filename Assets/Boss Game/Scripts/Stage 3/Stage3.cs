@@ -27,7 +27,7 @@ namespace BeeNice
             }
             else
             {
-                gameEnd.Invoke();
+                gameWon.Invoke();
             }
         }
     }

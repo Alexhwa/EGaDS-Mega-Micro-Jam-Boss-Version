@@ -13,7 +13,7 @@ namespace BeeNice
         {
             base.Start();
             instance = this;
-            gameEnd.AddListener(WipeScene);
+            gameWon.AddListener(WipeScene);
         }
 
         private void WipeScene()

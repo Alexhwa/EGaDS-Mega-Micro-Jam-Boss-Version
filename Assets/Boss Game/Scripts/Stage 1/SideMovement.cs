@@ -77,7 +77,7 @@ namespace BeeNice
                 ingredientsGotten++;
                 if(ingredientsGotten == requiredIngredients && !gameOver)
                 {
-                    Stage1.instance.gameEnd.Invoke();
+                    Stage1.instance.gameWon.Invoke();
                     gameOver = true;
                 }
             }

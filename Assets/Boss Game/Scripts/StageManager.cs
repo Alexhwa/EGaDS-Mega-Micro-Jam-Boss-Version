@@ -17,7 +17,7 @@ namespace BeeNice
         {
             currentStage = Instantiate(stages[0]);
             curStageController = currentStage.GetComponent<StageController>();
-            curStageController.gameEnd.AddListener(NextStage);
+            curStageController.gameWon.AddListener(NextStage);
         }
 
         private void NextStage()
@@ -34,7 +34,7 @@ namespace BeeNice
                 Destroy(currentStage);
                 currentStage = Instantiate(stages[stageIndex]);
                 curStageController = currentStage.GetComponent<StageController>();
-                curStageController.gameEnd.AddListener(NextStage);
+                curStageController.gameWon.AddListener(NextStage);
             }
         }
     }

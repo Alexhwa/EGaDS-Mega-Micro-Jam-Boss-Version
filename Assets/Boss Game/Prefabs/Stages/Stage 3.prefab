@@ -945,7 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74192fa5cdb64ef449e17763ee2a3629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEnd:
+  gameWon:
     m_PersistentCalls:
       m_Calls: []
-  endDelay: 1.5
+  endDelay: 1

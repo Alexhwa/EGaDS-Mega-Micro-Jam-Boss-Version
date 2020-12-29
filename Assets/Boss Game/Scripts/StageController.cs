@@ -8,13 +8,13 @@ namespace BeeNice
     public class StageController : MonoBehaviour
     {
         [HideInInspector]
-        public UnityEvent gameEnd;
+        public UnityEvent gameWon;
         // Start is called before the first frame update
         protected virtual void Start()
         {
-            if(gameEnd == null)
+            if(gameWon == null)
             {
-                gameEnd = new UnityEvent();
+                gameWon = new UnityEvent();
             }
         }
 
