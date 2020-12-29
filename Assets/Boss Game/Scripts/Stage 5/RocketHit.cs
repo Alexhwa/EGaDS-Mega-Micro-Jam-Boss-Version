@@ -9,9 +9,11 @@ namespace BeeNice
     {
         public Animator explode;
         private Transform transform;
+        public SideToSideMovement movementScript;
         private float shakeDuration = 0f;
         private float shakeMagnitude = 0.7f;
         private float dampingSpeed = 1.0f;
+        private bool gameOver;
         Vector3 initialPosition;
 
         void Awake()
@@ -29,6 +31,8 @@ namespace BeeNice
         public void RocketIsHit()
         {
             explode.SetTrigger("Explode");
+            Destroy(movementScript);
+            gameOver = true;
             shakeDuration = 0.5f;
         }
 
@@ -37,14 +41,20 @@ namespace BeeNice
 
             if (shakeDuration > 0)
             {
-                transform.localPosition = initialPosition + Random.insideUnitSphere * shakeMagnitude;
+                transform.localPosition = initialPosition;
+                transform.localPosition = transform.localPosition + Random.insideUnitSphere * shakeMagnitude;
 
                 shakeDuration -= Time.deltaTime * dampingSpeed;
             }
             else
             {
                 shakeDuration = 0f;
-                transform.localPosition = initialPosition;
+                //transform.localPosition = initialPosition;
+                initialPosition = transform.localPosition;
+                if (gameOver)
+                {
+                    Stage5.instance.LoseGame();
+                }
             }
         }
     }
