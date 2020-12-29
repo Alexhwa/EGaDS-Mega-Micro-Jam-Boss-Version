@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BeeNice
 {
-    public class Shake : MonoBehaviour
+    public class Victory : MonoBehaviour
     {
         private Transform transform;
         private float shakeDuration = 0f;
@@ -31,7 +31,11 @@ namespace BeeNice
 
         void Update()
         {
-            if (shakeDuration < 3f)
+            if (shakeDuration < 0f)
+            {
+
+            }
+            else if (shakeDuration < 3f)
             {
                 shakeMagnitude = 0.7f;
             }
@@ -39,7 +43,7 @@ namespace BeeNice
             {
                 shakeMagnitude = 0.3f;
             }
-            else
+            else if (shakeDuration < 9f)
             {
                 shakeMagnitude = 0.1f;
             }
