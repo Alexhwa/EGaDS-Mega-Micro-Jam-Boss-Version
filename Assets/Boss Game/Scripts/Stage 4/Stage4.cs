@@ -26,6 +26,7 @@ namespace BeeNice
             else
             {
                 gameWon.Invoke();
+                Destroy(killZone);
             }
         }
         private void Update()
