@@ -19,7 +19,12 @@ namespace BeeNice
         }
         private IEnumerator EndStage(float delay)
         {
-            yield return new WaitForSeconds(stageLength);
+            yield return new WaitForSeconds(stageLength - 1.5f);
+            if (finalRound)
+            {
+
+            }
+            yield return new WaitForSeconds(1.5f);
             gameWon.Invoke();
             if (rocketHit != null) {
                 rocketHit.shouldPlay = false;
