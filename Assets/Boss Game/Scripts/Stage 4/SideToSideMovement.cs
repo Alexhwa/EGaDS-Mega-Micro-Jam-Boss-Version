@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace BeeNice
 {
-    public class PlateMovement : MonoBehaviour
+    public class SideToSideMovement : MonoBehaviour
     {
         private float horizontal;
         public float moveSpeed;
